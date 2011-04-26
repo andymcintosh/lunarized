@@ -6,7 +6,7 @@
 " Created:  In the middle of the night
 " Modified: 2011 Apr 14
 "
-" Usage "{{{
+" Usage "
 "
 " ---------------------------------------------------------------------
 " ABOUT:
@@ -245,8 +245,8 @@
 " http://www.frexx.de/xterm-256-notes/"
 "
 "
-" }}}
-" Default option values"{{{
+" 
+" Default option values"
 " ---------------------------------------------------------------------
 if !exists("g:solarized_termtrans")
     if ($TERM_PROGRAM ==? "apple_terminal" && &t_Co < 256)
@@ -276,8 +276,8 @@ endif
 if !exists("g:solarized_visibility")
     let g:solarized_visibility = "normal"
 endif
-"}}}
-" Colorscheme initialization "{{{
+"
+" Colorscheme initialization "
 " ---------------------------------------------------------------------
 hi clear
 if exists("syntax_on")
@@ -285,8 +285,8 @@ if exists("syntax_on")
 endif
 let colors_name = "solarized"
 
-"}}}
-" GUI & CSApprox hexadecimal palettes"{{{
+"
+" GUI & CSApprox hexadecimal palettes"
 " ---------------------------------------------------------------------
 "
 " Set both gui and terminal color values in separate conditional statements
@@ -389,8 +389,8 @@ else
     let s:cyan        = "6"
     let s:green       = "2"
 endif
-"}}}
-" Formatting options and null values for passthrough effect "{{{
+"
+" Formatting options and null values for passthrough effect "
 " ---------------------------------------------------------------------
     let s:none            = "NONE"
     let s:none            = "NONE"
@@ -401,16 +401,16 @@ endif
     let s:s               = ",standout"
     let s:ou              = ""
     let s:ob              = ""
-"}}}
-" Background value based on termtrans setting "{{{
+"
+" Background value based on termtrans setting "
 " ---------------------------------------------------------------------
 if (has("gui_running") || g:solarized_termtrans == 0)
     let s:back        = s:base03
 else
     let s:back        = "NONE"
 endif
-"}}}
-" Alternate light scheme "{{{
+"
+" Alternate light scheme "
 " ---------------------------------------------------------------------
 if &background == "light"
     let s:temp03      = s:base03
@@ -429,8 +429,8 @@ if &background == "light"
         let s:back    = s:base03
     endif
 endif
-"}}}
-" Optional contrast schemes "{{{
+"
+" Optional contrast schemes "
 " ---------------------------------------------------------------------
 if g:solarized_contrast == "high"
     let s:base01      = s:base00
@@ -444,8 +444,8 @@ if g:solarized_contrast == "low"
     let s:back        = s:base02
     let s:ou          = ",underline"
 endif
-"}}}
-" Overrides dependent on user specified values"{{{
+"
+" Overrides dependent on user specified values"
 " ---------------------------------------------------------------------
 if g:solarized_bold == 1
     let s:b           = ",bold"
@@ -464,8 +464,8 @@ if g:solarized_italic == 1
 else
     let s:i           = ""
 endif
-"}}}
-" Highlighting primitives"{{{
+"
+" Highlighting primitives"
 " ---------------------------------------------------------------------
 
 exe "let s:bg_none      = ' ".s:vmode."bg=".s:none   ."'"
@@ -558,8 +558,8 @@ else
     let s:sp_cyan      = ""
 endif
 
-"}}}
-" Basic highlighting"{{{
+"
+" Basic highlighting"
 " ---------------------------------------------------------------------
 " note that link syntax to avoid duplicate configuration doesn't work with the
 " exe compiled formats
@@ -569,7 +569,7 @@ exe "hi! Normal"         .s:fmt_none   .s:fg_base0  .s:bg_back
 exe "hi! Comment"        .s:fmt_ital   .s:fg_base01 .s:bg_none
 "       *Comment         any comment
 
-exe "hi! Constant"       .s:fmt_none   .s:fg_cyan   .s:bg_none
+exe "hi! Constant"       .s:fmt_none   .s:fg_green   .s:bg_none
 "       *Constant        any constant
 "        String          a string constant: "this is a string"
 "        Character       a character constant: 'c', '\n'
@@ -581,7 +581,7 @@ exe "hi! Identifier"     .s:fmt_none   .s:fg_blue   .s:bg_none
 "       *Identifier      any variable name
 "        Function        function name (also: methods for classes)
 "
-exe "hi! Statement"      .s:fmt_none   .s:fg_green  .s:bg_none
+exe "hi! Statement"      .s:fmt_none   .s:fg_cyan  .s:bg_none
 "       *Statement       any statement
 "        Conditional     if, then, else, endif, switch, etc.
 "        Repeat          for, do, while, etc.
@@ -597,7 +597,7 @@ exe "hi! PreProc"        .s:fmt_none   .s:fg_orange .s:bg_none
 "        Macro           same as Define
 "        PreCondit       preprocessor #if, #else, #endif, etc.
 
-exe "hi! Type"           .s:fmt_none   .s:fg_yellow .s:bg_none
+exe "hi! Type"           .s:fmt_none   .s:fg_base2 .s:bg_none
 "       *Type            int, long, char, etc.
 "        StorageClass    static, register, volatile, etc.
 "        Structure       struct, union, enum, etc.
@@ -624,8 +624,8 @@ exe "hi! Todo"           .s:fmt_bold   .s:fg_magenta.s:bg_none
 "       *Todo            anything that needs extra attention; mostly the
 "                        keywords TODO FIXME and XXX
 "
-"}}}
-" Extended highlighting "{{{
+"
+" Extended highlighting "
 " ---------------------------------------------------------------------
 if      (g:solarized_visibility=="high")
     exe "hi! SpecialKey"     .s:fmt_revr   .s:fg_red    .s:bg_none
@@ -635,13 +635,13 @@ elseif  (g:solarized_visibility=="low")
     exe "hi! NonText"        .s:fmt_bold   .s:fg_base02 .s:bg_none
 else
     exe "hi! SpecialKey"     .s:fmt_bold   .s:fg_red    .s:bg_none
-    exe "hi! NonText"        .s:fmt_bold   .s:fg_base01 .s:bg_none
+    exe "hi! NonText"        .s:fmt_bold   .s:fg_base02 .s:bg_none
 endif
 if (has("gui_running")) || &t_Co > 8
-    exe "hi! StatusLine"     .s:fmt_none   .s:fg_base02 .s:bg_base1
-    exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base02 .s:bg_base00
+    exe "hi! StatusLine"     .s:fmt_none   .s:fg_base2 .s:bg_base02
+    exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base03 .s:bg_base02
     "exe "hi! Visual"         .s:fmt_stnd   .s:fg_none   .s:bg_base02
-    exe "hi! Visual"         .s:fmt_none   .s:fg_base02 .s:bg_blue
+    exe "hi! Visual"         .s:fmt_stnd   .s:fg_blue .s:bg_base02
 else
     exe "hi! StatusLine"     .s:fmt_none   .s:fg_base02 .s:bg_base2
     exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base02 .s:bg_base2
@@ -655,8 +655,8 @@ exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ModeMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! LineNr"         .s:fmt_none   .s:fg_base02 .s:bg_base03
 exe "hi! Question"       .s:fmt_bold   .s:fg_cyan   .s:bg_none
-exe "hi! VertSplit"      .s:fmt_bold   .s:fg_base00 .s:bg_base00
-exe "hi! Title"          .s:fmt_bold   .s:fg_orange .s:bg_none
+exe "hi! VertSplit"      .s:fmt_bold   .s:fg_base02 .s:bg_base02
+exe "hi! Title"          .s:fmt_bold   .s:fg_base3 .s:bg_none
 exe "hi! VisualNOS"      .s:fmt_stnd   .s:fg_none   .s:bg_base02
 exe "hi! WarningMsg"     .s:fmt_bold   .s:fg_red    .s:bg_none
 exe "hi! WildMenu"       .s:fmt_none   .s:fg_base2  .s:bg_base02
@@ -682,12 +682,12 @@ exe "hi! TabLineFill"    .s:fmt_undr   .s:fg_base0  .s:bg_base02  .s:sp_base0
 exe "hi! CursorColumn"   .s:fmt_none   .s:fg_none   .s:bg_base02
 exe "hi! CursorLine"     .s:fmt_uopt   .s:fg_none   .s:bg_base02  .s:sp_base1
 exe "hi! ColorColumn"    .s:fmt_none   .s:fg_none   .s:bg_base02
-exe "hi! Cursor"         .s:fmt_none   .s:fg_base03 .s:bg_base0
+exe "hi! Cursor"         .s:fmt_none   .s:fg_base02 .s:bg_base3
 hi! link lCursor Cursor
 exe "hi! MatchParen"     .s:fmt_bold   .s:fg_red    .s:bg_base01
 
-"}}}
-" vim syntax highlighting "{{{
+"
+" vim syntax highlighting "
 " ---------------------------------------------------------------------
 exe "hi! vimLineComment" . s:fg_base01 .s:bg_none   .s:fmt_ital
 exe "hi! vimCommentString".s:fg_violet .s:bg_none   .s:fmt_none
@@ -709,33 +709,33 @@ exe "hi! vimSynType"     . s:fg_cyan   .s:bg_none   .s:fmt_none
 exe "hi! vimHiLink"      . s:fg_blue   .s:bg_none   .s:fmt_none
 exe "hi! vimHiGroup"     . s:fg_blue   .s:bg_none   .s:fmt_none
 exe "hi! vimGroup"       . s:fg_blue   .s:bg_none   .s:fmt_undb
-"}}}
-" html highlighting "{{{
+"
+" html highlighting "
 " ---------------------------------------------------------------------
 exe "hi! htmlTag"        . s:fg_base01 .s:bg_none   .s:fmt_none
 exe "hi! htmlEndTag"     . s:fg_base01 .s:bg_none   .s:fmt_none
 exe "hi! htmlTagN"       . s:fg_base1  .s:bg_none   .s:fmt_bold
 exe "hi! htmlTagName"    . s:fg_blue   .s:bg_none   .s:fmt_bold
 exe "hi! htmlSpecialTagName". s:fg_blue  .s:bg_none .s:fmt_ital
-exe "hi! htmlArg"        . s:fg_base00 .s:bg_none   .s:fmt_none
+exe "hi! htmlArg"        . s:fg_base2 .s:bg_none   .s:fmt_none
 exe "hi! javaScript"     . s:fg_yellow .s:bg_none   .s:fmt_none
-"}}}
-" perl highlighting "{{{
+"
+" perl highlighting "
 " ---------------------------------------------------------------------
 exe "hi! perlHereDoc"    . s:fg_base1  .s:bg_back   .s:fmt_none
 exe "hi! perlVarPlain"   . s:fg_yellow .s:bg_back   .s:fmt_none
 exe "hi! perlStatementFileDesc". s:fg_cyan.s:bg_back.s:fmt_none
 
-"}}}
-" tex highlighting "{{{
+"
+" tex highlighting "
 " ---------------------------------------------------------------------
 exe "hi! texStatement"   . s:fg_cyan   .s:bg_back   .s:fmt_none
 exe "hi! texMathZoneX"   . s:fg_yellow .s:bg_back   .s:fmt_none
 exe "hi! texMathMatcher" . s:fg_yellow .s:bg_back   .s:fmt_none
 exe "hi! texMathMatcher" . s:fg_yellow .s:bg_back   .s:fmt_none
 exe "hi! texRefLabel"    . s:fg_yellow .s:bg_back   .s:fmt_none
-"}}}
-" ruby highlighting "{{{
+"
+" ruby highlighting "
 " ---------------------------------------------------------------------
 exe "hi! rubyDefine"     . s:fg_base1  .s:bg_back   .s:fmt_bold
 "rubyInclude
@@ -758,8 +758,8 @@ exe "hi! rubyDefine"     . s:fg_base1  .s:bg_back   .s:fmt_bold
 "hi! link rubyGlobalVariable    Identifier
 "hi! link rubyClassVariable     Identifier
 "hi! link rubyConstant          Type
-"}}}
-" haskell syntax highlighting"{{{
+"
+" haskell syntax highlighting"
 " ---------------------------------------------------------------------
 " For use with syntax/haskell.vim : Haskell Syntax File
 " http://www.vim.org/scripts/script.php?script_id=3034
@@ -800,8 +800,8 @@ hi! link hsModuleWhereLabel  hsModuleStartLabel
 exe "hi! hsNiceOperator"     . s:fg_cyan   .s:bg_none   .s:fmt_none
 exe "hi! hsniceoperator"     . s:fg_cyan   .s:bg_none   .s:fmt_none
 
-"}}}
-" pandoc markdown syntax highlighting "{{{
+"
+" pandoc markdown syntax highlighting "
 " ---------------------------------------------------------------------
 
 "PandocHiLink pandocNormalBlock
@@ -922,8 +922,8 @@ exe "hi! pandocMetadataKey"              .s:fg_blue   .s:bg_none   .s:fmt_none
 exe "hi! pandocMetadata"                 .s:fg_blue   .s:bg_none   .s:fmt_bold
 hi! link pandocMetadataTitle             pandocMetadata
 
-"}}}
-" Utility autocommand "{{{
+"
+" Utility autocommand "
 " ---------------------------------------------------------------------
 " In cases where Solarized is initialized inside a terminal vim session and 
 " then transferred to a gui session via the command `:gui`, the gui vim process 
@@ -941,8 +941,8 @@ hi! link pandocMetadataTitle             pandocMetadata
 " other potential terminal customizations that might make gui mode suboptimal.
 "
 autocmd GUIEnter * if (s:vmode != "gui") | exe "colorscheme " . g:colors_name | endif
-"}}}
-" License "{{{
+"
+" License "
 " ---------------------------------------------------------------------
 "
 " Copyright (c) 2011 Ethan Schoonover
@@ -966,5 +966,5 @@ autocmd GUIEnter * if (s:vmode != "gui") | exe "colorscheme " . g:colors_name | 
 " THE SOFTWARE.
 "
 " vim:foldmethod=marker:foldlevel=0
-"}}}
+"
 
