@@ -304,14 +304,14 @@ if (has("gui_running") && g:solarized_degrade == 0)
     let s:base1       = "#929495"
     let s:base2       = "#cdcdce"
     let s:base3       = "#d8d8d9"
-    let s:yellow      = "#ddc387"
-    let s:orange      = "#d09562"
-    let s:red         = "#e5786d"
-    let s:magenta     = "#d56c69"
-    let s:violet      = "#ba9ac2"
-    let s:blue        = "#92b3c8"
-    let s:cyan        = "#2aa198"
-    let s:green       = "#a7b367"
+    let s:yellow      = "#c8b271"
+    let s:orange      = "#d5977e"
+    let s:red         = "#df8e8c"
+    let s:magenta     = "#db8fb4"
+    let s:violet      = "#acaed6"
+    let s:blue        = "#87b7d9"
+    let s:cyan        = "#86c0bb"
+    let s:green       = "#afb96f"
 elseif (has("gui_running") && g:solarized_degrade == 1)
     " These colors are identical to the 256 color mode. They may be viewed
     " while in gui mode via "let g:solarized_degrade=1", though this is not
@@ -413,18 +413,34 @@ endif
 " Alternate light scheme "
 " ---------------------------------------------------------------------
 if &background == "light"
-    let s:temp03      = s:base03
-    let s:temp02      = s:base02
-    let s:temp01      = s:base01
-    let s:temp00      = s:base00
-    let s:base03      = s:base3
-    let s:base02      = s:base2
-    let s:base01      = s:base1
-    let s:base00      = s:base0
-    let s:base0       = s:temp00
-    let s:base1       = s:temp01
-    let s:base2       = s:temp02
-    let s:base3       = s:temp03
+    " let s:temp03      = s:base03
+    " let s:temp02      = s:base02
+    " let s:temp01      = s:base01
+    " let s:temp00      = s:base00
+    " let s:base03      = s:base3
+    " let s:base02      = s:base2
+    " let s:base01      = s:base1
+    " let s:base00      = s:base0
+    " let s:base0       = s:temp00
+    " let s:base1       = s:temp01
+    " let s:base2       = s:temp02
+    " let s:base3       = s:bebfc0
+    let s:base03      = "#eaeaea"
+    let s:base02      = "#bebfc0"
+    let s:base01      = "#66696b"
+    let s:base00      = "#717476"
+    let s:base0       = "#878a8b"
+    let s:base1       = "#929495"
+    let s:base2       = "#d3d4d5"
+    let s:base3       = "#d8d8d9"
+    let s:yellow      = "#b58900"
+    let s:orange      = "#cb4b16"
+    let s:red         = "#dc322f"
+    let s:magenta     = "#d33682"
+    let s:violet      = "#6c71c4"
+    let s:blue        = "#268bd2"
+    let s:cyan        = "#2aa198"
+    let s:green       = "#859900"
     if (s:back != "NONE")
         let s:back    = s:base03
     endif
@@ -635,13 +651,13 @@ elseif  (g:solarized_visibility=="low")
     exe "hi! NonText"        .s:fmt_bold   .s:fg_base02 .s:bg_none
 else
     exe "hi! SpecialKey"     .s:fmt_bold   .s:fg_red    .s:bg_none
-    exe "hi! NonText"        .s:fmt_bold   .s:fg_base02 .s:bg_none
+    exe "hi! NonText"        .s:fmt_bold   .s:fg_base01 .s:bg_none
 endif
 if (has("gui_running")) || &t_Co > 8
     exe "hi! StatusLine"     .s:fmt_none   .s:fg_base2 .s:bg_base02
     exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base03 .s:bg_base02
     "exe "hi! Visual"         .s:fmt_stnd   .s:fg_none   .s:bg_base02
-    exe "hi! Visual"         .s:fmt_stnd   .s:fg_blue .s:bg_base02
+    exe "hi! Visual"         .s:fmt_none   .s:fg_base02 .s:bg_blue
 else
     exe "hi! StatusLine"     .s:fmt_none   .s:fg_base02 .s:bg_base2
     exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base02 .s:bg_base2
