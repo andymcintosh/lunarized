@@ -304,14 +304,14 @@ if (has("gui_running") && g:solarized_degrade == 0)
     let s:base1       = "#929495"
     let s:base2       = "#cdcdce"
     let s:base3       = "#d8d8d9"
-    let s:yellow      = "#c8b271"
-    let s:orange      = "#d5977e"
-    let s:red         = "#df8e8c"
+    let s:yellow      = "#ddc387"
+    let s:orange      = "#d09562"
+    let s:red         = "#e5786d"
     let s:magenta     = "#db8fb4"
-    let s:violet      = "#acaed6"
-    let s:blue        = "#87b7d9"
-    let s:cyan        = "#86c0bb"
-    let s:green       = "#afb96f"
+    let s:violet      = "#ba9ac2"
+    let s:blue        = "#82a3bf"
+    let s:cyan        = "#7dbdb7"
+    let s:green       = "#a7b367"
 elseif (has("gui_running") && g:solarized_degrade == 1)
     " These colors are identical to the 256 color mode. They may be viewed
     " while in gui mode via "let g:solarized_degrade=1", though this is not
@@ -698,14 +698,14 @@ exe "hi! TabLineFill"    .s:fmt_undr   .s:fg_base0  .s:bg_base02  .s:sp_base0
 exe "hi! CursorColumn"   .s:fmt_none   .s:fg_none   .s:bg_base02
 exe "hi! CursorLine"     .s:fmt_uopt   .s:fg_none   .s:bg_base02  .s:sp_base1
 exe "hi! ColorColumn"    .s:fmt_none   .s:fg_none   .s:bg_base02
-exe "hi! Cursor"         .s:fmt_none   .s:fg_base02 .s:bg_base3
+exe "hi! Cursor"         .s:fmt_none   .s:fg_base03 .s:bg_base3
 hi! link lCursor Cursor
 exe "hi! MatchParen"     .s:fmt_bold   .s:fg_red    .s:bg_base01
 
 "
 " vim syntax highlighting "
 " ---------------------------------------------------------------------
-exe "hi! vimLineComment" . s:fg_base01 .s:bg_none   .s:fmt_ital
+exe "hi! vimlinecomment" . s:fg_base01 .s:bg_none   .s:fmt_ital
 exe "hi! vimCommentString".s:fg_violet .s:bg_none   .s:fmt_none
 hi! link vimVar Identifier
 hi! link vimFunc Function
@@ -734,6 +734,7 @@ exe "hi! htmlTagN"       . s:fg_base1  .s:bg_none   .s:fmt_bold
 exe "hi! htmlTagName"    . s:fg_blue   .s:bg_none   .s:fmt_bold
 exe "hi! htmlSpecialTagName". s:fg_blue  .s:bg_none .s:fmt_ital
 exe "hi! htmlArg"        . s:fg_base2 .s:bg_none   .s:fmt_none
+exe "hi! htmlScriptTag"  . s:fg_violet .s:bg_none   .s:fmt_none
 exe "hi! javaScript"     . s:fg_yellow .s:bg_none   .s:fmt_none
 "
 " perl highlighting "
