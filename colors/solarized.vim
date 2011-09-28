@@ -307,8 +307,9 @@ if (has("gui_running") && g:solarized_degrade == 0)
     let s:yellow      = "#ddc387"
     let s:orange      = "#d09562"
     let s:red         = "#e5786d"
-    let s:magenta     = "#db8fb4"
-    let s:violet      = "#ba9ac2"
+    let s:magenta     = "#dba3be"
+    "let s:violet      = "#ba9ac2"
+    let s:violet      = "#a39ac2"
     let s:blue        = "#82a3bf"
     let s:cyan        = "#7dbdb7"
     let s:green       = "#a7b367"
@@ -651,13 +652,14 @@ elseif  (g:solarized_visibility=="low")
     exe "hi! NonText"        .s:fmt_bold   .s:fg_base02 .s:bg_none
 else
     exe "hi! SpecialKey"     .s:fmt_bold   .s:fg_red    .s:bg_none
-    exe "hi! NonText"        .s:fmt_bold   .s:fg_base01 .s:bg_none
+    exe "hi! NonText"        .s:fmt_bold   .s:fg_base02 .s:bg_none
 endif
 if (has("gui_running")) || &t_Co > 8
     exe "hi! StatusLine"     .s:fmt_none   .s:fg_base2 .s:bg_base02
     exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base03 .s:bg_base02
     "exe "hi! Visual"         .s:fmt_stnd   .s:fg_none   .s:bg_base02
-    exe "hi! Visual"         .s:fmt_none   .s:fg_base02 .s:bg_blue
+    "exe "hi! Visual"         .s:fmt_stnd   .s:fg_base1   .s:bg_base03
+    exe "hi! Visual"         .s:fmt_none   ." guibg=#404549"
 else
     exe "hi! StatusLine"     .s:fmt_none   .s:fg_base02 .s:bg_base2
     exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base02 .s:bg_base2
@@ -665,11 +667,11 @@ else
 endif
 exe "hi! Directory"      .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ErrorMsg"       .s:fmt_revr   .s:fg_red    .s:bg_none
-exe "hi! IncSearch"      .s:fmt_stnd   .s:fg_orange .s:bg_none
-exe "hi! Search"         .s:fmt_revr   .s:fg_yellow .s:bg_none
+exe "hi! IncSearch"      .s:fmt_none   .s:fg_base03  .s:bg_base3
+exe "hi! Search"         .s:fmt_curl   .s:fg_none   .s:bg_none  .s:sp_base3
 exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ModeMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
-exe "hi! LineNr"         .s:fmt_none   .s:fg_base02 .s:bg_base03
+exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_none
 exe "hi! Question"       .s:fmt_bold   .s:fg_cyan   .s:bg_none
 exe "hi! VertSplit"      .s:fmt_bold   .s:fg_base02 .s:bg_base02
 exe "hi! Title"          .s:fmt_bold   .s:fg_base3 .s:bg_none
@@ -700,7 +702,7 @@ exe "hi! CursorLine"     .s:fmt_uopt   .s:fg_none   .s:bg_base02  .s:sp_base1
 exe "hi! ColorColumn"    .s:fmt_none   .s:fg_none   .s:bg_base02
 exe "hi! Cursor"         .s:fmt_none   .s:fg_base03 .s:bg_base3
 hi! link lCursor Cursor
-exe "hi! MatchParen"     .s:fmt_bold   .s:fg_red    .s:bg_base01
+exe "hi! MatchParen"     .s:fmt_uopt   .s:fg_orange  .s:bg_base02
 
 "
 " vim syntax highlighting "
@@ -732,10 +734,9 @@ exe "hi! htmlTag"        . s:fg_base01 .s:bg_none   .s:fmt_none
 exe "hi! htmlEndTag"     . s:fg_base01 .s:bg_none   .s:fmt_none
 exe "hi! htmlTagN"       . s:fg_base1  .s:bg_none   .s:fmt_bold
 exe "hi! htmlTagName"    . s:fg_blue   .s:bg_none   .s:fmt_bold
-exe "hi! htmlSpecialTagName". s:fg_blue  .s:bg_none .s:fmt_ital
+exe "hi! htmlSpecialTagName". s:fg_violet  .s:bg_none .s:fmt_ital
 exe "hi! htmlArg"        . s:fg_base2 .s:bg_none   .s:fmt_none
-exe "hi! htmlScriptTag"  . s:fg_violet .s:bg_none   .s:fmt_none
-exe "hi! javaScript"     . s:fg_yellow .s:bg_none   .s:fmt_none
+exe "hi! javaScript"     . s:fg_base1 .s:bg_none   .s:fmt_none
 "
 " perl highlighting "
 " ---------------------------------------------------------------------
@@ -984,4 +985,3 @@ autocmd GUIEnter * if (s:vmode != "gui") | exe "colorscheme " . g:colors_name | 
 "
 " vim:foldmethod=marker:foldlevel=0
 "
-
