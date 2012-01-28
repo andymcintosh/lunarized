@@ -587,6 +587,8 @@ exe "hi! Special"        .s:fmt_none   .s:fg_red    .s:bg_none
 "        SpecialComment  special things inside a comment
 "        Debug           debugging statements
 
+exe "hi! Delimiter"      .s:fmt_none .s:fg_base00
+
 exe "hi! Underlined"     .s:fmt_none   .s:fg_yellow .s:bg_none
 "       *Underlined      text that stands out, HTML links
 
@@ -620,7 +622,7 @@ exe "hi! Visual"         .s:fmt_none   ." guibg=#404549"
 exe "hi! Directory"      .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ErrorMsg"       .s:fmt_revr   .s:fg_red    .s:bg_none
 "exe "hi! IncSearch"      .s:fmt_stnd   .s:fg_orange .s:bg_none
-exe "hi! Search"         .s:fmt_none   .s:fg_base03  ." guibg=#ffffcc"
+exe "hi! Search"         .s:fmt_none   .s:fg_yellow  ." guibg=#ffffcc"
 exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ModeMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_base02
