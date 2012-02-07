@@ -1,0 +1,92 @@
+vim_colors "luna" do
+
+  #============================================================================
+  #
+  #   Setup
+  #
+  #============================================================================
+
+  author "Andy McIntosh"
+  notes "An implementation of Chris Kempson's Tomorrow colors on a dark background"
+  reset true
+  background dark
+
+  #============================================================================
+  #
+  #   Colors
+  #
+  #============================================================================
+
+  base03  = "25292c"
+  base02  = "303437"
+  base01  = "5c6470"
+  base00  = "69727f"
+  base0   = "818a97"
+  base1   = "9198a4"
+  base2   = "dfe1e4"
+  base3   = "ffffff"
+  yellow  = "c99e02"
+  orange  = "d09562"
+  red     = "e5786d"
+  magenta = "dba3be"
+  violet  = "a39ac2"
+  blue    = "82a3bf"
+  cyan    = "7dbdb7"
+  green   = "aff0b2"
+
+  #============================================================================
+  #
+  #   Highlighting
+  #
+  #============================================================================
+
+  #------------------------------------
+  # Basic
+  #------------------------------------
+
+  Normal       base1,    base03
+  Comment      base01,   none
+  Constant     cyan,     none
+  Identifier   blue,     none
+  Statement    base2,    none
+  PreProc      orange,   none
+  Type         violet,   none
+  Special      red,      none
+  Delimiter    base00,   none
+  Underlined   yellow,   none
+  Ignore       none,     none
+  Error        red,      none
+  Todo         magenta,  none
+
+  #------------------------------------
+  # Extended
+  #------------------------------------
+
+
+  #------------------------------------
+  # Javascript
+  #------------------------------------
+
+  #------------------------------------
+  # HTML
+  #------------------------------------
+
+  #------------------------------------
+  # CSS
+  #------------------------------------
+
+  #------------------------------------
+  # Ruby
+  #------------------------------------
+
+  link :RubyString, :to => :String
+  link :RubyStringDelimiter, :to => :RubyString
+
+  #------------------------------------
+  # Vim
+  #------------------------------------
+
+
+end
+
+# vim:ft=ruby
