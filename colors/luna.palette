@@ -1,4 +1,6 @@
-vim_colors "luna" do
+variant = args[1] || 'dark'
+
+vim_colors "luna-#{variant}" do
 
   #============================================================================
   #
@@ -9,7 +11,7 @@ vim_colors "luna" do
   author "Andy McIntosh"
   notes "An implementation of Chris Kempson's Tomorrow colors on a dark background"
   reset true
-  background dark
+  background variant
 
   #============================================================================
   #
@@ -17,22 +19,49 @@ vim_colors "luna" do
   #
   #============================================================================
 
-  base03  = "25292c"
-  base02  = "303437"
-  base01  = "5c6470"
-  base00  = "69727f"
-  base0   = "818a97"
-  base1   = "9198a4"
-  base2   = "dfe1e4"
-  base3   = "ffffff"
-  yellow  = "c99e02"
-  orange  = "d09562"
-  red     = "e5786d"
-  magenta = "dba3be"
-  violet  = "a39ac2"
-  blue    = "82a3bf"
-  cyan    = "7dbdb7"
-  green   = "aff0b2"
+  if variant == 'dark'
+
+    foreground = "cccccc"
+    background = "25292c"
+    selection = "44474a"
+    line = "303437"
+    comment = "676a6c"
+    window = "404447"
+
+    red = "e5786d"
+    pink = "dba3be"
+    orange = "d09562"
+    yellow = "ffc300"
+    green = "9cb961"
+    aqua = "7dbdb7"
+    blue = "82a3bf"
+    purple = "a39ac2"
+
+    light_yellow = "fffde5"
+    light_aqua = "f7fafb"
+
+  else
+
+    foreground = "666969"
+    background = "fefefe"
+    selection = "e0e0e0"
+    line = "f0f0f0"
+    comment = "b3b3b1"
+    window = "dddddd"
+
+    red = "c82829"
+    pink = "c82870"
+    orange = "f5871f"
+    yellow = "ffc300"
+    green = "718c00"
+    aqua = "429bae"
+    blue = "4271ae"
+    purple = "8959a8"
+
+    light_yellow = "fffde5"
+    light_aqua = "f7fafb"
+
+  end
 
   #============================================================================
   #
@@ -44,48 +73,133 @@ vim_colors "luna" do
   # Basic
   #------------------------------------
 
-  Normal       base1,    base03
-  Comment      base01,   none
-  Constant     cyan,     none
-  Identifier   blue,     none
-  Statement    base2,    none
-  PreProc      orange,   none
-  Type         violet,   none
-  Special      red,      none
-  Delimiter    base00,   none
-  Underlined   yellow,   none
-  Ignore       none,     none
-  Error        red,      none
-  Todo         magenta,  none
+  Normal        foreground,   background
+  Comment       comment,      none
+  Todo          comment,      none
+  Title         foreground,   none
+  Identifier    aqua,         none,        :gui => "none"
+  Statement     foreground,   none 
+  Conditional   foreground,   none
+  Repeat        foreground,   none
+  Structure     purple,       none
+  Function      purple,         none
+  Constant      aqua,         none
+  Number        orange,       none
+  String        green,        none
+  Special       foreground,   none
+  PreProc       purple,       none
+  Operator      aqua,         none,        :gui => "none"
+  Type          purple,         none,        :gui => "none"
+  Define        foreground,    none,        :gui => "none"
+  Include       pink,         none
+  Error         red,          none,        :gui => "bold"
+  # Ignore        comment,      none
+  Delimiter     comment,      none
+  Underlined    foreground,   none,        :gui => "underline"
 
   #------------------------------------
-  # Extended
+  # UI
   #------------------------------------
 
+  LineNr           comment,      none
+  NonText          selection,    none
+  SpecialKey       selection,    none
+  Search           yellow,       light_yellow, :gui   =>   "underline"
+  TabLine          foreground,   background,   :gui   =>   "reverse"
+  StatusLine       window,       foreground,   :gui   =>   "reverse"
+  StatusLineNC     window,       comment,      :gui   =>   "reverse"
+  VertSplit        window,       window,       :gui   =>   "none"
+  Visual           none,         selection
+  Directory        purple,       none
+  ModeMsg          green,        none
+  MoreMsg          green,        none
+  Question         green,        none
+  WarningMsg       red,          none,         :gui => "bold"
+  ErrorMsg         red,          none,         :gui => "reverse"
+  MatchParen       none,         selection
+  Folded           comment,      background
+  FoldColumn       none,         background
+  CursorLine       none,         line
+  PMenu            foreground,   selection
+  PMenuSel         foreground,   selection,    :gui   =>   "reverse"
+  ColorColumn      none,         line,         :gui   =>   "none"
 
   #------------------------------------
-  # Javascript
+  # NERDTree
   #------------------------------------
 
-  #------------------------------------
-  # HTML
-  #------------------------------------
-
-  #------------------------------------
-  # CSS
-  #------------------------------------
-
-  #------------------------------------
-  # Ruby
-  #------------------------------------
-
-  link :RubyString, :to => :String
-  link :RubyStringDelimiter, :to => :RubyString
+  link :NERDTreeHelp, :NERDTreeBookmarksLeader, :NERDTreeBookmark, 
+       :NERDTreeBookmarksHeader, :NERDTreeUp, :to => :Comment
+  link :NERDTreeBookmarkName, :to => :Identifier
 
   #------------------------------------
   # Vim
   #------------------------------------
 
+  link :vimCommand, :to => :Identifier
+
+  #------------------------------------
+  # C
+  #------------------------------------
+
+  link :cType, :to => :Type
+  link :cStorageClass, :to => :Structure
+  link :cConditional, :to => :Condtional
+  link :cRepeat, :to => :Repeat
+
+  #------------------------------------
+  # PHP
+  #------------------------------------
+
+  link :phpVarSelector, :to => :Identifier
+  link :phpKeyword, :to => :Structure
+  link :phpRepeat, :to => :Repeat
+  link :phpConditional, :to => :Conditional
+  link :phpStatement, :to => :Statement
+  link :phpMemberSelector, :to => :Statement
+
+  #------------------------------------
+  # HTML
+  #------------------------------------
+
+  link :htmlTag, :htmlTagN, :htmlEndTag, :to => :Delimiter
+  link :htmlArg, :to => :Identifier
+
+  #------------------------------------
+  # Ruby
+  #------------------------------------
+
+  link :rubySymbol, :to => :String
+  link :rubyString, :to => :String
+  link :rubyStringDelimiter, :to => :RubyString
+  link :rubyConstant, :to => :Constant
+  link :rubyLocalVariableOrMethod, :to => :rubyConstant
+  link :rubyInterpolationDelimiter, :to => :rubyConstant
+  link :rubyAttribute, :to => :Type
+  link :rubyInclude, :to => :Include
+  link :rubyConditional, :to => :Conditional
+  link :rubyRepeat, :to => :Repeat
+
+  #------------------------------------
+  # Python
+  #------------------------------------
+
+  #------------------------------------
+  # Javascript
+  #------------------------------------
+
+  link :javascriptBraces, :javascriptParens, :to => :Delimiter
+  link :javascriptFunction, :to => :Structure
+  link :javascriptConditional, :to => :Conditional
+  link :javascriptRepeat, :to => :Repeat
+  link :javascriptNumber, :to => :Number
+  link :javascriptMember, :to => :Constant
+
+  #------------------------------------
+  # CoffeeScript
+  #------------------------------------
+
+  link :coffeeObjAssign, :to => :Statement
 
 end
 
