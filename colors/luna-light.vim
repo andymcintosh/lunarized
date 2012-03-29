@@ -55,7 +55,7 @@ hi MoreMsg      guifg=#718C00 ctermfg=64   guibg=NONE    ctermbg=NONE gui=NONE c
 hi Question     guifg=#718C00 ctermfg=64   guibg=NONE    ctermbg=NONE gui=NONE cterm=NONE
 hi WarningMsg   guifg=#C82829 ctermfg=160  guibg=NONE    ctermbg=NONE gui=BOLD cterm=BOLD
 hi ErrorMsg     guifg=#C82829 ctermfg=160  guibg=NONE    ctermbg=NONE gui=REVERSE cterm=REVERSE
-hi MatchParen   guifg=NONE    ctermfg=NONE guibg=#E0E0E0 ctermbg=254  gui=NONE cterm=NONE
+hi MatchParen   guifg=#666969 ctermfg=242  guibg=#E0E0E0 ctermbg=254  gui=NONE cterm=NONE
 hi Folded       guifg=#B3B3B1 ctermfg=249  guibg=#FEFEFE ctermbg=231  gui=NONE cterm=NONE
 hi FoldColumn   guifg=NONE    ctermfg=NONE guibg=#FEFEFE ctermbg=231  gui=NONE cterm=NONE
 hi CursorLine   guifg=NONE    ctermfg=NONE guibg=#F0F0F0 ctermbg=255  gui=NONE cterm=NONE
@@ -66,8 +66,9 @@ hi ColorColumn  guifg=NONE    ctermfg=NONE guibg=#F0F0F0 ctermbg=255  gui=NONE c
 hi link NERDTreeHelp               Comment
 hi link NERDTreeBookmarksLeader    Comment
 hi link NERDTreeBookmark           Comment
-hi link NERDTreeBookmarksHeader    Comment
 hi link NERDTreeUp                 Comment
+hi link NERDTreeDirSlash           Comment
+hi link NERDTreeBookmarksHeader    Normal
 hi link NERDTreeBookmarkName       Identifier
 hi link vimCommand                 Identifier
 hi link cType                      Type
@@ -84,6 +85,21 @@ hi link htmlTag                    Delimiter
 hi link htmlTagN                   Delimiter
 hi link htmlEndTag                 Delimiter
 hi link htmlArg                    Identifier
+hi link cssClassName               Type
+hi link cssIdentifier              Type
+hi link cssTagName                 Type
+hi link cssRenderAttr              Identifier
+hi link cssBoxAttr                 Identifier
+hi link cssTextAttr                Identifier
+hi link cssColorAttr               Identifier
+hi link cssUIAttr                  Identifier
+hi link cssCommonAttr              Identifier
+hi link cssRenderProp              Normal
+hi link cssBoxProp                 Normal
+hi link cssTextProp                Normal
+hi link cssColorProp               Normal
+hi link cssUIProp                  Normal
+hi link cssBraces                  Delimiter
 hi link rubySymbol                 String
 hi link rubyString                 String
 hi link rubyStringDelimiter        RubyString

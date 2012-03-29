@@ -116,7 +116,7 @@ vim_colors "luna-#{variant}" do
   Question         green,        none
   WarningMsg       red,          none,         :gui => "bold"
   ErrorMsg         red,          none,         :gui => "reverse"
-  MatchParen       none,         selection
+  MatchParen       foreground,   selection
   Folded           comment,      background
   FoldColumn       none,         background
   CursorLine       none,         line
@@ -129,7 +129,8 @@ vim_colors "luna-#{variant}" do
   #------------------------------------
 
   link :NERDTreeHelp, :NERDTreeBookmarksLeader, :NERDTreeBookmark, 
-       :NERDTreeBookmarksHeader, :NERDTreeUp, :to => :Comment
+       :NERDTreeUp, :NERDTreeDirSlash, :to => :Comment
+  link :NERDTreeBookmarksHeader, :to => :Normal
   link :NERDTreeBookmarkName, :to => :Identifier
 
   #------------------------------------
@@ -164,6 +165,15 @@ vim_colors "luna-#{variant}" do
 
   link :htmlTag, :htmlTagN, :htmlEndTag, :to => :Delimiter
   link :htmlArg, :to => :Identifier
+
+  #------------------------------------
+  # CSS
+  #------------------------------------
+
+  link :cssClassName, :cssIdentifier, :cssTagName, :to => :Type
+  link :cssRenderAttr, :cssBoxAttr, :cssTextAttr, :cssColorAttr, :cssUIAttr, :cssCommonAttr, :to => :Identifier
+  link :cssRenderProp, :cssBoxProp, :cssTextProp, :cssColorProp, :cssUIProp, :to => :Normal
+  link :cssBraces, :to => :Delimiter
 
   #------------------------------------
   # Ruby
